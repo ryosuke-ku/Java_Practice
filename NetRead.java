@@ -1,5 +1,5 @@
 //----------------------
-// ネットからデータを読み取る
+// ネットからデータを読み取り，ファイルに書き込む
 //---------------------
 import java.net.*;
 import java.io.*;
@@ -8,7 +8,13 @@ public class NetRead {
 	
 		try{ //概ねの操作で例外処理が必要です。
 			 //URLを作成する
-			 String adress="https://syllabus.naist.jp/subjects/preview_detail/19";
+             
+                     FileWriter wr=new FileWriter("4.txt");//Fileとアプリを繋ぐ書き込みでつなぐ  
+
+                    BufferedWriter br=new BufferedWriter(wr);//BufferedWriterを作成
+
+
+			 String adress="http://www.geocities.jp/inu_poti/java/sample/Hellow.java";
 			 URL url=new URL(adress);//URLを設定
 			 
 		     // URL接続
@@ -19,11 +25,21 @@ public class NetRead {
 		      // ネットからデータの読み込み
 		      String str;//ネットから読んだデータを保管する変数を宣言
 		      str=readString(in);//1行読み取り
-		      while (str!=null) {//読み取りが成功していれば
+                    
+                     while (str!=null) {//読み取りが成功していれば
 		        System.out.println(str);//コンソールに出力
+
+                        br.write(str);//文字列の書き込み①
+			br.newLine();//改行を入れる
+
 		        str=readString(in);//次を読み込む
 		      }
 		  
+                        br.flush();//flush
+			wr.flush();
+			br.close();//閉じる
+			wr.close();
+
 		      // URL切断
 		      in.close();//InputStreamを閉じる
 		      connect.disconnect();//サイトの接続を切断
