@@ -4,7 +4,7 @@
 import java.net.*;
 import java.io.*;
 public class NetRead {
-	public static void main(String args[]){
+	public static void main(String[] args){
 	
 		try{ //概ねの操作で例外処理が必要です。
 			 //URLを作成する
@@ -34,13 +34,15 @@ public class NetRead {
 
 		        str=readString(in);//次を読み込む
 		      }
-		  
+		        
                         br.flush();//flush
 			wr.flush();
 			br.close();//閉じる
 			wr.close();
+                      
+                      System.out.println("\nファイル出力完了!\n");//ファイル出力メッセージ
 
-		      // URL切断
+                      //URL切断
 		      in.close();//InputStreamを閉じる
 		      connect.disconnect();//サイトの接続を切断
 
