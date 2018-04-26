@@ -8,7 +8,7 @@ public class NetRead {
 
 		try{ //概ねの操作で例外処理が必要です。
 			 //URLを作成する
-        System.out.println("URLのデータをファイル書き込む\n");//メッセージ     
+        System.out.println("URLのデータをファイル書き込む\n");//データ書き込みメッセージ     
                      FileWriter wr=new FileWriter("4.txt");//Fileとアプリを繋ぐ書き込みでつなぐ
 
                     BufferedWriter br=new BufferedWriter(wr);//BufferedWriterを作成
